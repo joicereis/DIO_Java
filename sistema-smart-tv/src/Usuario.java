@@ -28,6 +28,5 @@ public class Usuario {
        System.out.println( "\nO novo canal é: " +smartTv.canal);
        smartTv.desligar();
        System.out.println("\nA TV está ligada? " + smartTv.ligada);
-       
     }  
 }
