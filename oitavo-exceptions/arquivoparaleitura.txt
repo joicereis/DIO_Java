@@ -1,0 +1,3 @@
+Esse é um arquivo 
+para ser lido
+pelo meu código Java

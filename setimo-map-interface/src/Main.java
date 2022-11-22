@@ -6,7 +6,8 @@ public class Main {
 		// interfaceMap.ExemploMap.manipulandoInterfaceMap();
 		// interfaceMap.OrdenacaoLivrosMap.ordenandoLivros();
 		// interfaceMap.ExercicioProposto1_Estados.ordenacoaEstados();
-		interfaceMap.ExercicioProsposto2_LancamentoDeDados.lancamentoDeDado();
+		// interfaceMap.ExercicioProsposto2_LancamentoDeDados.lancamentoDeDado();
+		interfaceMap.exercicios_StreamAPI.ExerciciosStreamAPI.imprimirStreamAPI();
 	}
 
 }

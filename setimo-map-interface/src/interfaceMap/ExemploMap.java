@@ -8,24 +8,24 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-/* A interface Map não faz parte de uma Collection e ela utiliza elementos únicos (key) para cada valor */
+/* A interface Map nï¿½o faz parte de uma Collection e ela utiliza elementos ï¿½nicos (key) para cada valor */
 import java.util.TreeMap;
 
 public class ExemploMap {
 	public static void manipulandoInterfaceMap() {
-		System.out.println("\nDicionário com modelos de veículos e seus respectivos consumos.");
+		System.out.println("\nDicionï¿½rio com modelos de veï¿½culos e seus respectivos consumos.");
 
 		/*
-		 * Implementação do tipo Map com elementos que possuem chaves do tipo string e
-		 * valores do tipo double. HashMap itera os elementos de forma aleatória;
-		 * LinkedHashMap itera os elementos de acordo com a ordem de inserção; TreeMap
-		 * itera os elementos de acordo com a ordem natual (alfabética ou do menor para
+		 * Implementaï¿½ï¿½o do tipo Map com elementos que possuem chaves do tipo string e
+		 * valores do tipo double. HashMap itera os elementos de forma aleatï¿½ria;
+		 * LinkedHashMap itera os elementos de acordo com a ordem de inserï¿½ï¿½o; TreeMap
+		 * itera os elementos de acordo com a ordem natual (alfabï¿½tica ou do menor para
 		 * maior)
 		 */
 
 		Map<String, Double> carrosPopulares = new HashMap<>() {
 			{
-				put("Gol", 14.4); // A implementação Map utiliza o put para adicionar elementos
+				put("Gol", 14.4); // A implementaï¿½ï¿½o Map utiliza o put para adicionar elementos
 				put("Uno", 15.6);
 				put("Mobi", 16.1);
 				put("Hb20", 14.5);
@@ -35,76 +35,78 @@ public class ExemploMap {
 		System.out.println(carrosPopulares);
 
 		System.out.println("\nSubstitua o consumo do gol para 15,2 km/l.");
-		carrosPopulares.put("Gol", 15.2); // utilzando o método put com uma chave já existente, ocorre a substituição do
+		carrosPopulares.put("Gol", 15.2); // utilzando o mï¿½todo put com uma chave jï¿½ existente, ocorre a substituiï¿½ï¿½o do
 											// valor
 		System.out.println(carrosPopulares);
 
-		System.out.println("\nConfira se o modelo Tucson está no dicionário: " + carrosPopulares.containsKey("Tucson"));
-		System.out.println("Confira se o modelo Uno está no dicionário: " + carrosPopulares.containsKey("Uno"));
+		System.out.println("\nConfira se o modelo Tucson estï¿½ no dicionï¿½rio: " + carrosPopulares.containsKey("Tucson"));
+		System.out.println("Confira se o modelo Uno estï¿½ no dicionï¿½rio: " + carrosPopulares.containsKey("Uno"));
 
 		System.out.println("Exiba o consumo do Uno : " + carrosPopulares.get("Uno"));
-		System.out.println("Exiba o terceiro modelo adicionado: Não há um método que exiba o índice");
+		System.out.println("Exiba o terceiro modelo adicionado: Nï¿½o hï¿½ um mï¿½todo que exiba o ï¿½ndice");
 
 		// Exiba os modelos.
-		Set<String> modelos = carrosPopulares.keySet(); // para isso, deve se usar o método keySet que retorna um set e
-														// por isso foi declarado uma variável do tipo Set.
+		Set<String> modelos = carrosPopulares.keySet(); // para isso, deve se usar o mï¿½todo keySet que retorna um set e
+														// por isso foi declarado uma variï¿½vel do tipo Set.
 		System.out.println("Exiba os modelos: " + modelos);
 
-		// para retornar os valores, utilizamos o método values de uma collection
+		// para retornar os valores, utilizamos o mï¿½todo values de uma collection
 		System.out.println("Exiba o consumo dos carros: " + carrosPopulares.values());
 
-		// Exiba o modelo mais econômico- que faz mais km/l:
-		// para retornar o valore máximo utilizamos o método max de collections que
-		// recebe o método values (que busca valores) tbm de collections.
+		// Exiba o modelo mais econï¿½mico- que faz mais km/l:
+		// para retornar o valore mï¿½ximo utilizamos o mï¿½todo max de collections que
+		// recebe o mï¿½todo values (que busca valores) tbm de collections.
 		Double consumoEficiente = Collections.max(carrosPopulares.values()); // achando o maior valor
 
-		// método entrySet para buscar as chaves de forma separada do valor - o método
+		// mï¿½todo entrySet para buscar as chaves de forma separada do valor - o mï¿½todo
 		// entrySet retorna valor do tipo Set
-		Set<Map.Entry<String, Double>> entries = carrosPopulares.entrySet(); // atalho para cria variável Ctrl+1
-		String modeloEficiente = ""; // variável de controle
+		Set<Map.Entry<String, Double>> entries = carrosPopulares.entrySet(); // atalho para cria variï¿½vel Ctrl+1
+		String modeloEficiente = ""; // variï¿½vel de controle
 
 		Set<String> modelosEfic = new LinkedHashSet<>();
 
-		// criando um for each com o índice do tipo entries
+		// criando um for each com o ï¿½ndice do tipo entries
 		for (Entry<String, Double> indEntries : entries) {
 			if (indEntries.getValue().equals(consumoEficiente)) { // se o valor daquele elemento for igual ao valor da
-																	// // variável consumoEficiente, então...
-				modeloEficiente = indEntries.getKey(); // atribui à variável modeloEficiente o valor da chave daquele
+																	// // variï¿½vel consumoEficiente, entï¿½o...
+				modeloEficiente = indEntries.getKey(); // atribui ï¿½ variï¿½vel modeloEficiente o valor da chave daquele
 				modelosEfic.add(modeloEficiente);
 			}
 		}
-		System.out.println("\nExiba o(s) modelo(s) mais econômico(s):");
-		// se existir mais de um modelo com o mesmo consumo, também será impresso.
+		System.out.println("\nExiba o(s) modelo(s) mais econï¿½mico(s)
+		
+		:");
+		// se existir mais de um modelo com o mesmo consumo, tambï¿½m serï¿½ impresso.
 		for (String modelo : modelosEfic) {
 			System.out.println(modelo.toString());
 		}
 
 		System.out.println(
-				"O(s) modelo(s) mais econômico(s) listado(s) faz(em) " + consumoEficiente + " km(s) por litro.");
+				"O(s) modelo(s) mais econï¿½mico(s) listado(s) faz(em) " + consumoEficiente + " km(s) por litro.");
 
 		/* *************** */
 		Double consumoMenosEficiente = Collections.min(carrosPopulares.values()); // achando o menor valor
-		String modeloMenosEficiente = ""; // variável de controle
+		String modeloMenosEficiente = ""; // variï¿½vel de controle
 		Set<String> modelosMenosEfic = new LinkedHashSet<>();
 
-		// criando um for each com o índice do tipo entries
+		// criando um for each com o ï¿½ndice do tipo entries
 		for (Entry<String, Double> indMenosEntries : entries) {
 			if (indMenosEntries.getValue().equals(consumoMenosEficiente)) { // se o valor daquele elemento for igual ao
 																			// valor da
-				// variável consumoMenosEficiente, então...
-				modeloMenosEficiente = indMenosEntries.getKey(); // variável modeloEficiente recebe valor da chave
+				// variï¿½vel consumoMenosEficiente, entï¿½o...
+				modeloMenosEficiente = indMenosEntries.getKey(); // variï¿½vel modeloEficiente recebe valor da chave
 																	// daquele elemento
 				modelosMenosEfic.add(modeloMenosEficiente);
 			}
 		}
-		System.out.println("\nExiba o(s) modelo(s) menos econômico(s):");
-		// se existir mais de um modelo com o mesmo consumo, também será impresso.
+		System.out.println("\nExiba o(s) modelo(s) menos econï¿½mico(s):");
+		// se existir mais de um modelo com o mesmo consumo, tambï¿½m serï¿½ impresso.
 		for (String modelo : modelosMenosEfic) {
 			System.out.println(modelo.toString());
 		}
 
 		System.out.println(
-				"O(s) modelo(s) menos econômico(s) listado(s) faz(em) " + consumoMenosEficiente + " km(s) por litro.");
+				"O(s) modelo(s) menos econï¿½mico(s) listado(s) faz(em) " + consumoMenosEficiente + " km(s) por litro.");
 
 		/* *** */
 		// Exiba a soma dos consumos.
@@ -114,7 +116,7 @@ public class ExemploMap {
 		while (iterador.hasNext())
 			soma += iterador.next();
 
-		System.out.println("\nExiba a média de consumo dos modelos.\n" + soma / (carrosPopulares.size()) + " km/l");
+		System.out.println("\nExiba a mï¿½dia de consumo dos modelos.\n" + soma / (carrosPopulares.size()) + " km/l");
 
 		Iterator<Double> iterador2 = carrosPopulares.values().iterator();
 		while (iterador2.hasNext())
@@ -125,7 +127,7 @@ public class ExemploMap {
 		System.out.println("\nExiba todos os carros na ordem em que foram informados.");
 		Map<String, Double> carrosPopulares2 = new LinkedHashMap<>() {
 			{
-				put("Gol", 14.4); // A implementação Map utiliza o put para adicionar elementos
+				put("Gol", 14.4); // A implementaï¿½ï¿½o Map utiliza o put para adicionar elementos
 				put("Uno", 15.6);
 				put("Mobi", 16.1);
 				put("Hb20", 14.5);
@@ -139,9 +141,9 @@ public class ExemploMap {
 		System.out.println(carrosPopulares3);
 
 		carrosPopulares.clear();
-		System.out.println("\nApague o dicionário de carros:\n" + carrosPopulares);
+		System.out.println("\nApague o dicionï¿½rio de carros:\n" + carrosPopulares);
 
-		System.out.println("\nConfira se o dicionário está vazio: " + carrosPopulares.isEmpty());
+		System.out.println("\nConfira se o dicionï¿½rio estï¿½ vazio: " + carrosPopulares.isEmpty());
 
 	}
 }
